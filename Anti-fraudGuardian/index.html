@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>天大银龄守护-电话风险助手</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <img
+  class="logo"
+  src="images/tju_badge_blue_padding.png"
+  alt="天津大学校徽"
+>
+      <div>
+        <p class="eyebrow">天津大学银龄守护团队</p>
+        <h1>电话风险助手</h1>
+      </div>
+    </header>
+
+    <section class="intro">
+      <h2>识别通话中的可疑话术</h2>
+      <p>
+        请在下方粘贴通话文字，或者点击语音输入实时识别通话内容，系统会根据通话内容自动帮您识别对方是诈骗分子的可能性。
+      </p>
+    </section>
+
+    <section class="input-card">
+      <div class="section-title">
+        <label for="transcript">通话内容</label>
+        <span id="charCount">0 / 5000</span>
+      </div>
+
+      <textarea
+        id="transcript"
+        maxlength="5000"
+        placeholder="请粘贴通话转写文字，或者点击下方“开始语音输入”自动为您识别通话内容"
+      ></textarea>
+    <div class="voice-controls">
+      <button
+        id="startVoiceButton"
+        class="secondary-button"
+        type="button"
+      >
+        开始语音输入
+      </button>
+
+      <button
+        id="stopVoiceButton"
+        class="secondary-button"
+        type="button"
+        disabled
+      >
+        停止语音输入
+      </button>
+    </div>
+
+    <p id="voiceStatus" class="voice-status" role="status">
+      点击“开始语音输入”后，请允许浏览器使用麦克风。
+    </p>
+      <div class="input-footer">
+        <span class="hint">建议填写完整对话，分析结果会更准确</span>
+        <button id="analyzeButton" class="primary-button">开始分析</button>
+      </div>
+    </section>
+
+    <section id="emptyState" class="empty-state">
+      <div class="empty-icon">⌕</div>
+      <p>分析结果会显示在这里</p>
+    </section>
+
+    <section id="resultSection" class="result-section" hidden>
+      <div id="riskCard" class="risk-card">
+        <div class="risk-card-top">
+          <div>
+            <p class="result-label">综合判断</p>
+            <h2 id="riskTitle">需要警惕</h2>
+          </div>
+          <div id="riskScore" class="risk-score">0</div>
+        </div>
+        <div class="score-track">
+          <div id="scoreBar" class="score-bar"></div>
+        </div>
+        <p id="riskSummary" class="risk-summary"></p>
+      </div>
+
+      <div class="result-block">
+        <div class="block-title">
+          <span class="block-icon">标</span>
+          <h3>可疑片段</h3>
+        </div>
+        <div id="highlightedText" class="highlighted-text"></div>
+      </div>
+
+      <div class="result-block">
+        <div class="block-title">
+          <span class="block-icon">!</span>
+          <h3>风险线索</h3>
+        </div>
+        <div id="reasons" class="reasons"></div>
+      </div>
+
+      <div class="advice-card">
+        <div class="block-title">
+          <span class="block-icon">✓</span>
+          <h3>建议</h3>
+        </div>
+        <p id="advice"></p>
+      </div>
+
+      <p class="disclaimer">
+        本结果仅根据文字中的风险线索进行辅助判断，不能替代公安机关、银行或其他官方机构的判断。
+      </p>
+
+      <button id="resetButton" class="secondary-button">重新分析</button>
+    </section>
+  </main>
+
+  <script src="scripts/app.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/voice.js"></script>
+</body>
+</html>
