@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>项目概况｜银龄守护</title>
+
+  <link rel="stylesheet" href="styles/home.css">
+  <link rel="stylesheet" href="styles/overview.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="返回银龄守护项目首页">
+      <img
+        class="brand-logo"
+        src="images/tju_tp.png"
+        alt="天津大学校徽"
+      >
+      <span class="brand-title">经管学部国创团队银龄守护项目</span>
+    </a>
+
+    <nav class="main-nav" aria-label="主导航">
+      <a href="overview.html" class="current">项目概况</a>
+      <a href="#" class="news-link">项目动态</a>
+      <a href="results.html">项目成果</a>
+      <a href="index.html" class="back-home">返回首页</a>
+    </nav>
+
+    <button
+      class="menu-button"
+      type="button"
+      aria-label="打开导航菜单"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main class="overview-page">
+    <!-- 横幅图片与左下角标题 -->
+    <section class="overview-banner" aria-label="项目概况">
+      <img src="images/overviewimage.jpg" alt="">
+      <h1>项目概况</h1>
+    </section>
+
+    <!-- 蓝色介绍区块 -->
+    <section class="overview-intro">
+      <p>公益服务 · 青年力量 · 守护银龄</p>
+    </section>
+
+    <!-- 文字内容区域 -->
+    <section class="overview-content">
+      <h2 class="overview-section-title">项目概况</h2>
+
+      <div class="overview-frame">
+        <div class="overview-text">
+          <p style="text-indent:2em;">
+            <strong>  "银龄守护 —— 数字化时代老年人反诈护航公益项目"</strong>
+            是天津大学管理与经济学部 7 名学生开展的中国国际大学生创新大赛青年红色筑梦之旅创意类公益项目，由佘震宇副教授指导。
+          </p>
+
+          <p style="text-indent:2em;">
+              目前，在我国老龄化与数字化并行的背景下，老年群体逐渐成为数字弱势群体，容易遭受电信网络诈骗侵害。同时，传统反诈宣传存在形式单一、宣传内容"一刀切"、缺乏效果量化评估的问题。针对上述情况，天津大学"银龄守护"团队致力于打造反诈科普可视化、银龄数字课堂、反诈数据看板三位一体公益服务体系，面向社区、乡村 60 岁以上老年人，助力老年人提升数字素养，掌握诈骗识别能力，守护养老积蓄。
+          </p>
+
+          <p style="text-indent:2em;">
+              项目以"数据发现问题 → 课程解决问题 → 数据验证效果"作为运行逻辑。依托 Python 工具对公开反诈案件数据开展分析，开发反诈数据看板，分析骗局类型、高发场景，实现属地化精准反诈科普；采用图多字少、大字大图的适老化形式输出骗局流程图、话术拆解卡等科普物料；深入社区开展银龄数字课堂，兼顾智能手机实用教学与诈骗情景模拟演练；通过课堂前后测问卷构建宣传效果评价体系，量化反诈知识提升成效，产出分析报告，解决传统公益宣传难以评估实效的问题。
+          </p>
+
+          <p style="text-indent:2em;">
+              本项目坚持公益属性，不向老年人收取任何费用，定位为街道、社区反诈工作的内容供应商与执行伙伴。资金来源主要包括学校竞赛立项资助、学部经费以及政府专项合作经费。项目将先在天津 1–2 个社区开展试点，完成不少于 50 位老年人的服务，在实践中打磨标准化流程；后续将逐步向更多社区复制，最终向乡村地区推广，形成"城市社区先行、乡村地区跟进"可复制、可推广的公益服务模式，响应数字适老化与反电信网络诈骗相关政策，以青年力量助力银龄群体安享晚年。
+          </p>
+   
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const menuButton = document.querySelector(".menu-button");
+    const navigation = document.querySelector(".main-nav");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navigation.classList.toggle("is-open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navigation.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navigation.classList.remove("is-open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+
+   document.querySelectorAll(".news-link").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        alert("该页面还没有完工哦~看看别的吧");
+     });
+    });
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>项目成果｜银龄守护</title>
+
+  <link rel="stylesheet" href="styles/home.css">
+  <link rel="stylesheet" href="styles/results.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="返回银龄守护项目首页">
+      <img
+        class="brand-logo"
+        src="images/tju_tp.png"
+        alt="天津大学校徽"
+      >
+      <span class="brand-title">经管学部国创团队银龄守护项目</span>
+    </a>
+
+    <nav class="main-nav" aria-label="主导航">
+      <a href="overview.html">项目概况</a>
+      <a href="#" class="news-link">项目动态</a>
+      <a href="results.html" class="current">项目成果</a>
+      <a href="index.html" class="back-home">返回首页</a>
+    </nav>
+
+    <button
+      class="menu-button"
+      type="button"
+      aria-label="打开导航菜单"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+<main class="results-page">
+  <!-- 横幅图片与左下角标题 -->
+  <section class="results-banner" aria-label="项目成果">
+    <img src="images/resultimage.jpg" alt="">
+    <h1>项目成果</h1>
+  </section>
+
+  <!-- 蓝色介绍区块 -->
+  <section class="results-intro">
+    <p>老有所终，皆有所养。  ——《礼记・礼运》</p>
+  </section>
+
+  <!-- 成果卡片区域 -->
+  <section class="results-content">
+    <h2 class="results-section-title">项目成果</h2>
+
+    <div class="results-frame">
+      <div class="result-cards">
+        <a class="result-card" href="call.html">
+          <div class="result-card-image">
+            <!-- 将此图片替换为实际成果图片 -->
+            <img src="images/call-cover.png" alt="电话风险助手">
+          </div>
+
+          <div class="result-card-text">
+            <h3>电话风险助手</h3>
+            <p>
+              此工具可以根据实时通话内容，辅助用户判断对方是诈骗分子的可能性。
+              <br>“须知香饵下，触口是铦钩”。
+            </p>
+          </div>
+        </a>
+
+        <!-- 预留另外两个卡片位置 -->
+        <div class="result-card result-card-placeholder" aria-hidden="true"></div>
+        <div class="result-card result-card-placeholder" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <script>
+    const menuButton = document.querySelector(".menu-button");
+    const navigation = document.querySelector(".main-nav");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navigation.classList.toggle("is-open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navigation.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navigation.classList.remove("is-open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
+  <script>
+  document.querySelectorAll(".news-link").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      alert("该页面还没有完工哦~看看别的吧");
+    });
+  });
+</script>
+</body>
+</html>

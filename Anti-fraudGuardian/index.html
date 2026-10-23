@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>经管学部国创团队银龄守护项目</title>
+  <link rel="stylesheet" href="styles/home.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="银龄守护项目首页">
+      <img
+        class="brand-logo"
+        src="images/tju_tp.png"
+        alt="天津大学校徽"
+      >
+      <span class="brand-title">经管学部国创团队银龄守护项目</span>
+    </a>
+
+    <nav class="main-nav" aria-label="主导航">
+      <a href="overview.html">项目概况</a>
+      <a href="#" class="news-link">项目动态</a>
+      <a href="results.html">项目成果</a>
+    </nav>
+
+    <button class="menu-button" type="button" aria-label="打开导航菜单" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero-carousel" aria-label="项目图片轮播">
+      <div class="carousel-track"></div>
+
+      <button class="carousel-control carousel-prev" type="button" aria-label="上一张图片">
+        <span aria-hidden="true">‹</span>
+      </button>
+
+      <button class="carousel-control carousel-next" type="button" aria-label="下一张图片">
+        <span aria-hidden="true">›</span>
+      </button>
+
+      <div class="carousel-dots" aria-label="选择轮播图片"></div>
+    </section>
+
+    <span id="overview" class="anchor-target"></span>
+    <span id="news" class="anchor-target"></span>
+    <span id="results" class="anchor-target"></span>
+  </main>
+
+  <script src="scripts/home.js"></script>
+  <script>
+  document.querySelectorAll(".news-link").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      alert("该页面还没有完工哦~看看别的吧");
+    });
+  });
+</script>
+</body>
+</html>

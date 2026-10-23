@@ -1,0 +1,209 @@
+.results-page {
+  min-height: calc(100vh - 92px);
+  padding-bottom: 80px;
+  background: #f7f9fb;
+}
+
+/* 横幅图片 */
+.results-banner {
+  position: relative;
+  height: clamp(240px, 32vw, 420px);
+  overflow: hidden;
+  background: #dce5ea;
+}
+
+.results-banner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.results-banner::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(14, 35, 53, 0.55),
+    transparent 58%
+  );
+  content: "";
+}
+
+.results-banner h1 {
+  position: absolute;
+  bottom: clamp(24px, 5vw, 56px);
+  left: clamp(24px, 8vw, 120px);
+  z-index: 1;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+}
+
+/* 蓝色矩形区块 */
+.results-intro {
+  display: flex;
+  min-height: 100px;
+  align-items: center;
+  padding: 24px clamp(24px, 8vw, 120px);
+  background: #315c7b;
+  color: #fff;
+}
+
+.results-intro p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 0.06em;
+}
+
+/* 下方成果卡片区域 */
+.results-content {
+  padding: 58px clamp(24px, 8vw, 120px) 0;
+}
+
+.results-section-title {
+  margin: 0 0 28px;
+  color: #24343d;
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+}
+
+.results-frame {
+  padding: clamp(20px, 3vw, 36px);
+  border: 1px solid #d8e0e5;
+  background: #fff;
+}
+
+.result-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 28px);
+}
+
+.result-card {
+  display: block;
+  overflow: hidden;
+  color: #24343d;
+  background: #fff;
+  border: 1px solid #e1e6e9;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+a.result-card:hover,
+a.result-card:focus-visible {
+  box-shadow: 0 12px 28px rgba(30, 58, 76, 0.12);
+  transform: translateY(-5px);
+}
+
+/* 卡片上半部分：正方形图片 */
+.result-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #e9eef1;
+}
+
+.result-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+a.result-card:hover .result-card-image img {
+  transform: scale(1.04);
+}
+
+/* 卡片下半部分：文字说明 */
+.result-card-text {
+  min-height: 150px;
+  padding: 20px;
+}
+
+.result-card-text h3 {
+  margin: 0 0 12px;
+  color: #263842;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.result-card-text p {
+  margin: 0;
+  color: #68777b;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* 暂未使用的卡片占位框 */
+.result-card-placeholder {
+  min-height: 300px;
+  background: #fbfcfd;
+}
+
+@media (max-width: 760px) {
+  .results-page {
+    min-height: calc(100vh - 76px);
+  }
+
+  .results-intro {
+    min-height: 88px;
+  }
+
+  .results-content {
+    padding-top: 40px;
+  }
+
+  .result-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .result-card-placeholder {
+    display: none;
+  }
+
+  .result-card-text {
+    min-height: auto;
+  }
+}
+.main-nav .current {
+  color: #9f3f35;
+}
+
+.main-nav .back-home {
+  margin-left: 8px;
+  padding-left: 25px;
+  border-left: 1px solid rgba(36, 52, 61, 0.18);
+}
+
+@media (max-width: 760px) {
+  .results-page {
+    min-height: calc(100vh - 76px);
+    padding: 54px 20px 70px;
+  }
+
+  .results-heading {
+    margin-bottom: 36px;
+  }
+
+  .section-description {
+    font-size: 14px;
+    letter-spacing: 0.04em;
+  }
+
+  .result-list {
+    grid-template-columns: minmax(0, 360px);
+  }
+
+  .main-nav .back-home {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 0;
+  }
+}

@@ -1,0 +1,334 @@
+:root {
+  --ink: #24343d;
+  --muted: #68777b;
+  --red: #9f3f35;
+  --gold: #bd8e56;
+  --line: rgba(36, 52, 61, 0.2);
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--white);
+  color: var(--ink);
+  font-family:
+    "Noto Serif SC",
+    "Source Han Serif SC",
+    "Songti SC",
+    "STSong",
+    "Microsoft YaHei",
+    serif;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+.site-header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 92px;
+  padding: 16px clamp(24px, 5vw, 76px);
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid rgba(36, 52, 61, 0.08);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 60px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.brand-title {
+  margin-left: 18px;
+  color: var(--ink);
+  font-size: clamp(16px, 1.65vw, 30px);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(28px, 4vw, 64px);
+  margin-left: 32px;
+}
+
+.main-nav a {
+  position: relative;
+  padding: 16px 0 10px;
+  color: var(--ink);
+  font-size: 15px;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 180ms ease;
+}
+
+.main-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 22px;
+  height: 2px;
+  margin: auto;
+  background: var(--red);
+  content: "";
+  transform: scaleX(0.65);
+  transform-origin: center;
+  transition: transform 180ms ease, width 180ms ease;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  color: var(--red);
+}
+
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after {
+  width: 34px;
+  transform: scaleX(1);
+}
+
+.menu-button {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 9px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-button span {
+  display: block;
+  height: 1px;
+  margin: 6px 0;
+  background: var(--ink);
+}
+
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 92px);
+  min-height: 520px;
+  overflow: hidden;
+  background: #ede8df;
+}
+
+.carousel-track {
+  position: absolute;
+  inset: 0;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+  transform: scale(1.025);
+  transition: opacity 900ms ease, transform 6s ease;
+}
+
+.carousel-slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.carousel-slide::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(33, 44, 47, 0.08),
+    rgba(255, 255, 255, 0.02) 55%,
+    rgba(33, 44, 47, 0.1)
+  );
+  content: "";
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  background: rgba(36, 52, 61, 0.18);
+  color: var(--white);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 180ms ease, background 180ms ease;
+}
+
+.hero-carousel:hover .carousel-control,
+.carousel-control:focus-visible {
+  opacity: 1;
+}
+
+.carousel-control:hover {
+  background: rgba(159, 63, 53, 0.78);
+}
+
+.carousel-control span {
+  margin-top: -4px;
+  font-family: Arial, sans-serif;
+  font-size: 34px;
+  font-weight: 200;
+  line-height: 1;
+}
+
+.carousel-prev {
+  left: clamp(18px, 3vw, 48px);
+}
+
+.carousel-next {
+  right: clamp(18px, 3vw, 48px);
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  gap: 10px;
+  transform: translateX(-50%);
+}
+
+.carousel-dot {
+  width: 28px;
+  height: 2px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.62);
+  cursor: pointer;
+  transition: width 180ms ease, background 180ms ease;
+}
+
+.carousel-dot.is-active {
+  width: 48px;
+  background: var(--white);
+}
+
+.anchor-target {
+  position: absolute;
+  top: -100px;
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    min-height: 76px;
+    padding: 12px 18px;
+  }
+
+  .brand-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .brand-title {
+    max-width: 210px;
+    margin-left: 11px;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    white-space: normal;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    right: 18px;
+    left: 18px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(36, 52, 61, 0.1);
+    box-shadow: 0 12px 28px rgba(36, 52, 61, 0.1);
+  }
+
+  .main-nav.is-open {
+    display: flex;
+  }
+
+  .main-nav a {
+    padding: 14px 0;
+  }
+
+  .main-nav a::after {
+    right: auto;
+    left: 0;
+    margin: 0;
+  }
+
+  .hero-carousel {
+    height: calc(100vh - 76px);
+    min-height: 420px;
+  }
+
+  .carousel-control {
+    width: 38px;
+    height: 38px;
+    opacity: 1;
+  }
+
+  .carousel-control span {
+    font-size: 28px;
+  }
+
+  .carousel-dots {
+    bottom: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .carousel-slide {
+    transition: opacity 300ms ease;
+    transform: none;
+  }
+}
